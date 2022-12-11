@@ -8,7 +8,9 @@ import com.lava.routes.signUp
 import com.lava.security.hashing.HashingService
 import com.lava.security.token.TokenConfig
 import com.lava.security.token.TokenService
+import io.ktor.http.*
 import io.ktor.server.application.*
+import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
 fun Application.configureRouting(
@@ -22,5 +24,8 @@ fun Application.configureRouting(
         signUp(hashingService, userDataSource, tokenService, tokenConfig)
         authenticate()
         registerUser(userDataSource)
+        get("/") {
+            call.respond(HttpStatusCode.OK, "Welcome to the Yoga App!")
+        }
     }
 }
