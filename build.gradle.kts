@@ -7,7 +7,7 @@ val commons_codec_version: String by project
 plugins {
     kotlin("jvm") version "1.7.22"
     id("io.ktor.plugin") version "2.2.1"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.7.22"
+                id("org.jetbrains.kotlin.plugin.serialization") version "1.7.22"
 }
 
 group = "com.lava"
