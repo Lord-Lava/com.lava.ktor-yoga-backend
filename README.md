@@ -21,11 +21,13 @@ Backend for booking Yoga Classes built on Ktor-Server
 
 Schema for the NoSQL collection -
 
-![db-schema](/src/main/resources/images/db-schema.png?raw=true)
+![db-schema](/src/main/resources/images/db-schema.png)
 
 ER Diagram -
 
-![er-diagram](/src/main/resources/images/er-diagram.png?raw=true)
+![er-diagram](/src/main/resources/images/er-diagram.png)
+
+Note: In case the image does not load, follow this [link](https://drive.google.com/drive/folders/1pXqYDPhowaVMHW5A4Ye_IKv2csD9d12p?usp=share_link)
 
 ## API Reference
 
