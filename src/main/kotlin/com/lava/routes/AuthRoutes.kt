@@ -1,8 +1,9 @@
 package com.lava.routes
 
 import com.lava.data.models.User
-import com.lava.data.requests.AuthRequest
-import com.lava.data.responses.AuthResponse
+import com.lava.data.requests.LoginRequest
+import com.lava.data.responses.AuthenticateResponse
+import com.lava.data.responses.LoginResponse
 import com.lava.data.source.UserDataSource
 import com.lava.security.hashing.HashingService
 import com.lava.security.hashing.SaltedHash
@@ -23,7 +24,7 @@ fun Route.signUp(
     tokenConfig: TokenConfig
 ) {
     post("signup") {
-        val request = kotlin.runCatching { call.receiveNullable<AuthRequest>() }.getOrNull() ?: kotlin.run {
+        val request = kotlin.runCatching { call.receiveNullable<LoginRequest>() }.getOrNull() ?: kotlin.run {
             call.respond(HttpStatusCode.BadRequest)
             return@post
         }
@@ -61,7 +62,7 @@ fun Route.signUp(
         )
 
         call.respond(
-            HttpStatusCode.Created, message = AuthResponse(
+            HttpStatusCode.Created, message = LoginResponse(
                 uid = user.id.toString(),
                 jwtAuthToken = jwtAuthToken,
                 isRegistered = user.isRegistered
@@ -77,7 +78,7 @@ fun Route.signIn(
     tokenConfig: TokenConfig
 ) {
     post("signin") {
-        val request = kotlin.runCatching { call.receiveNullable<AuthRequest>() }.getOrNull() ?: kotlin.run {
+        val request = kotlin.runCatching { call.receiveNullable<LoginRequest>() }.getOrNull() ?: kotlin.run {
             call.respond(HttpStatusCode.BadRequest)
             return@post
         }
@@ -110,7 +111,7 @@ fun Route.signIn(
 
         call.respond(
             status = HttpStatusCode.OK,
-            message = AuthResponse(
+            message = LoginResponse(
                 uid = user.id.toString(),
                 jwtAuthToken = jwtAuthToken,
                 isRegistered = user.isRegistered
@@ -119,10 +120,18 @@ fun Route.signIn(
     }
 }
 
-fun Route.authenticate() {
+fun Route.authenticate(
+    userDataSource: UserDataSource
+) {
     authenticate {
         get("authenticate") {
-            call.respond(HttpStatusCode.OK)
+            val uid = call.request.queryParameters["uid"].toString()
+            val user = userDataSource.getUserById(uid)
+            if (user == null) {
+                call.respond(HttpStatusCode.Unauthorized, "token expired")
+                return@get
+            }
+            call.respond(status = HttpStatusCode.OK, message = AuthenticateResponse(user.isRegistered))
         }
     }
 }

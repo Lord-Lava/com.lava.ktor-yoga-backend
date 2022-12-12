@@ -22,7 +22,7 @@ fun Application.configureRouting(
     routing {
         signIn(userDataSource, hashingService, tokenService, tokenConfig)
         signUp(hashingService, userDataSource, tokenService, tokenConfig)
-        authenticate()
+        authenticate(userDataSource)
         registerUser(userDataSource)
         get("/") {
             call.respond(HttpStatusCode.OK, "Welcome to the Yoga App!")

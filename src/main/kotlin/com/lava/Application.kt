@@ -1,14 +1,11 @@
 package com.lava
 
-import com.lava.data.models.User
 import com.lava.data.source.MongoUserDataSource
 import io.ktor.server.application.*
 import com.lava.plugins.*
 import com.lava.security.hashing.SHA256HashingService
 import com.lava.security.token.JwtTokenService
 import com.lava.security.token.TokenConfig
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.reactivestreams.KMongo
 

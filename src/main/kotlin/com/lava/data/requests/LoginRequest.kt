@@ -3,7 +3,7 @@ package com.lava.data.requests
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class AuthRequest(
+data class LoginRequest(
     val username: String,
     val password: String
 )
