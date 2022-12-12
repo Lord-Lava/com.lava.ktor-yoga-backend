@@ -10,10 +10,12 @@ Backend for booking Yoga Classes built on Ktor-Server
 - Used salting and hashing techniques and algorithms like SHA256 & HMAC signature, to protect the user data and privacy.
 - Used a clean architecture and basic design patterns for scalability.
 
-### Technologies Used -
+### Tools & Technologies Used -
 - Backend: Kotlin Ktor-Server
 - Database: KMongo Atlas
 - Container: Docker
+- IDE: IntelliJ Idea
+- API Testing: Postman
 
 ### Database Schema and ER Diagram
 
