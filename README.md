@@ -19,8 +19,13 @@ Backend for booking Yoga Classes built on Ktor-Server
 
 ### Database Schema and ER Diagram
 
+Schema for the NoSQL collection -
 
+![db-schema](https://github.com/Lord-Lava/ktor-yoga-backend/blob/master/db-schema.png?raw=true)
 
+ER Diagram -
+
+![db-schema](https://github.com/Lord-Lava/ktor-yoga-backend/blob/master/er-diagram.png?raw=true)
 
 ## API Reference
 
@@ -53,4 +58,9 @@ Refer this url for the postman documentation -
 - Explored Docker to make the app cloud native and for ease of deployment.
 - Learnt to host the app on a hosting service like renderer.
 - Learnt how to use postman for making API calls and to build an attractive API documentation.
+- Learnt about Database Schema and ER Diagram.
 - Concepts like routing, serialization, hashing, salting
+
+## Author
+
+- [@Lord-Lava](https://github.com/Lord-Lava/)
