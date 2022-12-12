@@ -21,11 +21,11 @@ Backend for booking Yoga Classes built on Ktor-Server
 
 Schema for the NoSQL collection -
 
-![db-schema](https://github.com/Lord-Lava/ktor-yoga-backend/blob/master/db-schema.png?raw=true)
+![db-schema](https://github.com/Lord-Lava/ktor-yoga-backend/blob/master/src/main/resources/images/db-schema.png?raw=true)
 
 ER Diagram -
 
-![db-schema](https://github.com/Lord-Lava/ktor-yoga-backend/blob/master/er-diagram.png?raw=true)
+![er-diagram](https://github.com/Lord-Lava/ktor-yoga-backend/blob/master/src/main/resources/images/er-diagram.png?raw=true)
 
 ## API Reference
 
