@@ -6,6 +6,7 @@ Backend for booking Yoga Classes built on Ktor-Server
 ### Approach
 - Built *HTTP POST* end points for the login, signup and register features with corresponding models for the Response request and Body.
 - Implemented the *HTTP GET* end point for authentication, which contains the JWT Auth token in header and unique user id in the query param.
+- Used Kotlin Coroutines for multithreading
 - Used salting and hashing techniques and algorithms like SHA256 & HMAC signature, to protect the user data and privacy.
 - Used a clean architecture and basic design patterns for scalability.
 
