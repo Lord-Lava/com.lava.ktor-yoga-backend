@@ -1,11 +1,13 @@
 package com.lava
 
 import com.lava.data.source.MongoUserDataSource
-import io.ktor.server.application.*
 import com.lava.plugins.*
 import com.lava.security.hashing.SHA256HashingService
 import com.lava.security.token.JwtTokenService
 import com.lava.security.token.TokenConfig
+import io.ktor.server.application.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.reactivestreams.KMongo
 
@@ -29,6 +31,14 @@ fun Application.module() {
         secret = System.getenv("JWT_SECRET")
     )
     val hashingService = SHA256HashingService()
+
+    launch {
+        while (true) {
+            val daysUntilExpiry = 30L * 1000L * 60L * 60L * 24L
+            delay(daysUntilExpiry)
+            userDataSource.resetRegistration()
+        }
+    }
 
     configureSerialization()
     configureMonitoring()

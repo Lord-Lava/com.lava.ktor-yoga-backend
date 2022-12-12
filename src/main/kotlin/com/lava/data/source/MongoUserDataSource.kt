@@ -6,7 +6,6 @@ import org.litote.kmongo.coroutine.CoroutineDatabase
 import org.litote.kmongo.eq
 import org.litote.kmongo.set
 import org.litote.kmongo.setTo
-import org.litote.kmongo.setValue
 
 class MongoUserDataSource(
     db: CoroutineDatabase
@@ -38,6 +37,14 @@ class MongoUserDataSource(
                 User::amount setTo user.amount,
                 User::isRegistered setTo user.isRegistered,
                 User::registrationDate setTo user.registrationDate
+            )
+        ).wasAcknowledged()
+    }
+    override suspend fun resetRegistration(): Boolean {
+        return users.updateMany(
+            User::isRegistered eq true, set(
+                User::isRegistered setTo false,
+                User::registrationDate setTo null
             )
         ).wasAcknowledged()
     }

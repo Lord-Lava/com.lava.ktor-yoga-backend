@@ -85,7 +85,7 @@ fun Route.signIn(
 
         val user = userDataSource.getUserByUserName(request.username)
         if (user == null) {
-            call.respond(HttpStatusCode.Conflict, "Incorrect username or password")
+            call.respond(HttpStatusCode.NotAcceptable, "Incorrect username or password")
             return@post
         }
 
@@ -97,7 +97,7 @@ fun Route.signIn(
             )
         )
         if (!isValidPassword) {
-            call.respond(HttpStatusCode.Conflict, "Incorrect username or password")
+            call.respond(HttpStatusCode.NotAcceptable, "Incorrect username or password")
             return@post
         }
 

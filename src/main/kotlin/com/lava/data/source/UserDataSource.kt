@@ -9,4 +9,5 @@ interface UserDataSource {
     suspend fun getUserById(uid: String): User?
     suspend fun insertUser(user: User): Boolean
     suspend fun updateUserById(id: ObjectId, user: User): Boolean
+    suspend fun resetRegistration(): Boolean
 }
