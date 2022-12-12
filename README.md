@@ -51,7 +51,7 @@ Refer this url for the postman documentation -
 ## Troubleshooting
 
 - Note: Since the app is hosted using a free plan of render, the server stops after being idle for some time.
-- Desi Jugaad: Make sure to hit the [base end point](https://ktor-yoga.onrender.com/) a couple of times before using the app to wake the server up from sleep and make it up and running!
+- Desi Jugaad: Make sure to hit the [base end point](https://ktor-yoga.onrender.com/) a couple of times before using the app until you see this message - "Welcome to the Yoga App!" to wake the server up from sleep and make it up and running!
 ## My Learnings
 
 - Learnt the complete backend development using Kotlin Ktor Server and KMongo Atlas NoSQL database.
