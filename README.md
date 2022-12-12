@@ -35,7 +35,9 @@ Refer this url for the postman documentation -
 ## Deployment
 
 - The app contains a Dockerfile which can be used to containerize the application and is thus Cloud Native.
-- The app is currently deployed on [renderer](https://render.com/)
+- The app is currently deployed on [renderer](https://render.com/) & the database is hosted on AWS.
+
+
   Refer to this url for steps to containerize this app using docker -
 - [ktor-docker](https://ktor.io/docs/docker.html)
 
